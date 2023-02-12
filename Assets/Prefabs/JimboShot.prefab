@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4699809758036765220}
   - component: {fileID: 4699809758036765221}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: bulletTexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 702860382}
   - component: {fileID: 13603456633225005}
   - component: {fileID: 702860384}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: JimboShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,6 +161,7 @@ MonoBehaviour:
   lifeTime: 1
   source: {fileID: 0}
   damage: 3
+  knockback: 0
 --- !u!50 &702860384
 Rigidbody2D:
   serializedVersion: 4

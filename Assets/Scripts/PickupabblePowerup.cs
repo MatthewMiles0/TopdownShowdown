@@ -26,6 +26,7 @@ public class PickupabblePowerup : Pickupabble
             powerups = FindObjectOfType<Powerups>();
 
         _icon.sprite = powerups.powerups[type].icon;
+        _icon.enabled = true;
 
         powerup = powerups.powerups[type];
         

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2246155689462555624}
   - component: {fileID: 112571500}
   - component: {fileID: 1091524985}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fren _)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -70,8 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 40
-  health: 0
   healthBar: {fileID: 2246155687947266119}
+  difficulty: 0
+  damage: 10
   speed: 0.5
   detectionDistance: 10
   changeOfLookingForNewTarget: 0.1
@@ -111,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2234574129914990096}
   - component: {fileID: 4340691148886728209}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Silvo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,9 +193,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2246155689462555627}
     m_Modifications:
+    - target: {fileID: 3648213816789838501, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648213816926133644, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3648213817401126868, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
       propertyPath: m_Name
       value: Healthbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648213817401126868, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3648213817401126869, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
       propertyPath: m_RootOrder
@@ -239,6 +252,14 @@ PrefabInstance:
     - target: {fileID: 3648213817401126869, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648213817716058657, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648213818282083177, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffbdcc4168b02514d8c4053fd2fe809d, type: 3}

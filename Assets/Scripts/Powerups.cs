@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Powerups : MonoBehaviour
 {
-    public enum Types { FireRate, Damage, Speed, Knockback, Thorns, Burn, Slow, GunUpgrade, BulletStorm, Vaccine };
+    public enum Types { FireRate, DamageReduction, Speed, Knockback, Thorns, Burn, Slow, GunUpgrade, BulletStorm, Vaccine };
     [System.NonSerialized] public Dictionary<Types, Powerup> powerups = new Dictionary<Types, Powerup>();
     // private Dictionary<Types, int> powerupCounts = new Dictionary<Types, int>();
 

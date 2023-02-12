@@ -23,9 +23,11 @@ public class Player : MonoBehaviour
 
     public float damageHealingCooldown = 2f;
     public float healthRegen = 4f;
+    public float enemyKnockbackForce = 100f;
 
     private Vector2 movementVector = Vector2.zero;
     private float timeOfLastDamage = 0f;
+
 
     void Start()
     {
@@ -114,7 +116,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void takeDamage(float damage, GameObject source)
+    public void TakeDamage(float damage, GameObject source)
     {
         health -= damage;
         UpdateHealthBar();

@@ -21,7 +21,7 @@ public class Enemy : WorldObject
         base.Update();
     }
 
-    public void takeDamage (float damage, GameObject source)
+    public void TakeDamage(float damage, GameObject source, float knockback)
     {
         health -= damage;
 
@@ -36,9 +36,9 @@ public class Enemy : WorldObject
         }
     }
 
-    public void Attack (Player player)
+    public void Attack(Player player)
     {
-        player.takeDamage(damage, gameObject);
+        player.TakeDamage(damage, gameObject);
         player.GetComponent<Rigidbody2D>().AddForce((player.transform.position - transform.position).normalized * 100f);
     }
 }

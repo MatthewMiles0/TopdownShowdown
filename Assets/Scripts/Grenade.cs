@@ -11,6 +11,8 @@ public class Grenade : Bullet
     public float maxExplosionDamage = 20f;
     public float minExplosionDamage = 5f;
 
+    public float knockbackScale = 3f;
+
     private LayerMask blockingLayers;
 
     new void Start()
@@ -23,11 +25,13 @@ public class Grenade : Bullet
     new void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, speed * Time.deltaTime);
+        
+        // If grenade hits enemy, deal damage
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.tag == "Enemy")
             {
-                hit.collider.gameObject.GetComponent<Enemy>().takeDamage(1, source);
+                hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(1, source, knockback);
             }
         }
     }
@@ -47,13 +51,27 @@ public class Grenade : Bullet
                     continue;
                 }
 
-                collider.gameObject.GetComponent<Enemy>().takeDamage(Mathf.Lerp(minExplosionDamage, maxExplosionDamage,
-                    (explosionRadius - Vector2.Distance(this.transform.position, collider.transform.position))/explosionRadius), source);
+                float ppd = GetPercentPointDistance(collider.transform.position);
+                collider.gameObject.GetComponent<Enemy>().TakeDamage(
+                    Mathf.Lerp(minExplosionDamage, maxExplosionDamage,
+                    ppd), source, knockback*knockbackScale*ppd
+                );
             }
         }
         GameObject explosion = Instantiate(explosionVisuals, transform.position, transform.rotation);
         explosion.GetComponent<Explosion>().radius = explosionRadius;
         Destroy(gameObject);
+    }
+
+    private float GetPercentPointDistance(Vector3 point)
+    {
+        return (explosionRadius - Vector2.Distance(this.transform.position, point))/explosionRadius;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 
     IEnumerator ExplodeAfterTime(float time)

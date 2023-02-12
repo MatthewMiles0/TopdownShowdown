@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 1f;
     public GameObject source;
     public float damage = 10f;
+    public float knockback = 0f; // knockback force
 
     protected void Start()
     {
@@ -21,12 +22,14 @@ public class Bullet : MonoBehaviour
 
     protected void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, speed * Time.deltaTime);
+        // get layermask equivilent to what a bullet can hit
+        LayerMask blockingLayers = LayerMask.GetMask(new string[] { "Obstacle", "Enemy" });
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, speed * Time.deltaTime, blockingLayers);
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.tag == "Enemy")
             {
-                hit.collider.gameObject.GetComponent<Enemy>().takeDamage(damage, source);
+                hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(damage, source, knockback);
                 // Debug.Log("hit enemy");
             }
             Destroy(gameObject);
